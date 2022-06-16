@@ -13,10 +13,7 @@ import time
 
 import imageio
 
-
-
 #supplemental functions 
-
 
 #starting by implementing convolution function focusing on kernel of the original image
 
@@ -65,8 +62,6 @@ def ConvolutionFunction(OriginalImage, Kernel):
     height = KernelHeight // 2
     
     width = KernelWidth // 2
-    
-    
     
     
     #initialize a new array of given shape and type, filled with zeros from padded image 
@@ -118,10 +113,7 @@ def ConvolutionFunction(OriginalImage, Kernel):
 
 
 #implement a nearest function to get the nearest neighbor interpolation 
-
-
-
-                    
+                  
 def NearestInterpolation(image):
     
     #read image with imageio.imread(image)
@@ -157,23 +149,16 @@ def NearestInterpolation(image):
     return (newImage.astype(np.uint8))
 
 
-
-
-#Driver code:
-
-#Required test:
+#Driver code/testing: 
 
 #Upsample image ”Moire small.jpg” to be 4 times larger in 
 #each direction (16 times more image area) once with nearest neighbor interpolation and save as ”6a.png”
 
-
-a = NearestInterpolation('hw1_data/Moire_small.jpg')
+a = NearestInterpolation('Moire_small.jpg')
 
 plt.imshow(a)
 
 plt.imsave('6a.png', a)
-
-
 
 #supplemental function for bilinear inerpolaition:
 
@@ -215,8 +200,6 @@ def BilinearFunction(image):
     return (newImage.astype(np.uint8))
 
 
-
-
 #we also need a calculate function to multiply rows and columns 
 
 def CalculateFunction(x, y, image):
@@ -247,8 +230,6 @@ def CalculateFunction(x, y, image):
     return Width 
 
 
-
-
 def BilinearInterpolation(image, x, y):
 
     xx = x//4
@@ -258,20 +239,14 @@ def BilinearInterpolation(image, x, y):
     return CalculateFunction(x,y, image),image[xx][yy]
 
 
-
-
 #Driver code for upsampling with bilinear interpolation
 
 #Required test: once with bilinear interpolation and save as ”6b.png”.
 
 
 
-b = BilinearFunction('hw1_data/Moire_small.jpg')
+b = BilinearFunction('Moire_small.jpg')
 
 plt.imshow(b)
 
 plt.imsave('6b.png',b)
-
-
-
-
